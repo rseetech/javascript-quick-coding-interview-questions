@@ -87,23 +87,20 @@
 
     **Example: 1**
 
-        ```
             const myArr = [[1,2],[3,4],[5,6]];
             const newArr = myArr.flat();
             console.log(newArr);
 
             Output: [1,2,3,4,5,6]
-        ```
+        
     **Example: 2**
 
-        ```
             const multi_dimensional_array = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];
 
             const single_array = multi_dimensional_array.flat();
             console.log(single_array);
 
             Output: ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
-        ```
 
 3. ### Number array Sorting
 
