@@ -26,53 +26,61 @@
 
 1. ### Array method more using. Below Array can be used in all method 
     
-    > const names = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
+        > const names = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
     
     1. #### The length property returns the length (size) of an array: 
-    >   let size = names.length;
+        >   let size = names.length;
     
     2. #### The `push()` method adds a new element to an array (at the end):
-    >   names.push("Bhavesh"); 
+        >   names.push("Bhavesh"); 
     
     2. #### The `pop()` method removes the last element from an array:
-    >   names.pop();
+        >   names.pop();
 
-    3. #### The `shift()` method removes the first array element and "shifts" all other elements to a lower index.
-    names.shift();
+    3. #### The `shift()` method removes the first array element and `"shifts"` all other elements to a lower index.
+        >   names.shift();
 
-    4. #### The `unshift()` method adds a new element to an array (at the beginning), and "unshifts" older elements:
-    names.unshift("Rakesh");
+    4. #### The `unshift()` method adds a new element to an array (at the beginning), and `"unshifts"` older elements:
+        >   names.unshift("Rakesh");
 
     5. #### Array elements can be deleted using the JavaScript operator delete.
     //Using delete leaves undefined holes in the array.
     //Use `pop()` or `shift()` instead.
-    >   delete names[0];
+        >   delete names[0];
 
     6. #### The `splice()` method can be used to add new items to an array:
-    //The first parameter (2) defines the position where new elements should be added (spliced in).
+        The first parameter (2) defines the position where new elements should be added (spliced in).
 
-    //The second parameter (0) defines how many elements should be removed.
+        The second parameter (0) defines how many elements should be removed.
 
-    ///The rest of the parameters ("Rakesh" , "Dinesh") define the new elements to be added.
+        The rest of the parameters `("Rakesh" , "Dinesh")` define the new elements to be added.
 
-    >   names.splice(2, 0, "Rakesh", "Dinesh");
+        >   names.splice(2, 0, "Rakesh", "Dinesh");
 
-    7. #### The slice() method slices out a piece of an array into a new array.
-    //The slice() method creates a new array.
+    7. #### The `slice()` method slices out a piece of an array into a new array.
+        The `slice()` method creates a new array.
 
-    8. #### The slice() method does not remove any elements from the source array.
-    >   const citrus = names.slice(1);
+        The `slice()` method does not remove any elements from the source array.
+            
+        >   const citrus = names.slice(1);
 
-    9. #### The slice() method can take two arguments like slice(1, 3).
-    >   const citrus = names.slice(1, 3);
+    8. #### The `slice()` method can take two arguments like slice(1, 3).
+        >   const citrus = names.slice(1, 3);
 
-    10. #### The sort() method sorts an array alphabetically:
-    >   names.sort();
+    9. #### The `sort()` method sorts an array alphabetically:
+        >   names.sort();
 
-    11. #### The reverse() method reverses the elements in an array.
-    >   names.reverse();
+    10. #### The `reverse()` method reverses the elements in an array.
+        >   names.reverse();
 
+2. ### Consolidate array in single array
 
+    ```
+        const myArr = [[1,2],[3,4],[5,6]];
+        const newArr = myArr.flat();
+        console.log(newArr);
+    ```
+    
     const arr1 = ["Cecilie", "Lone"];
     const arr2 = ["Emil", "Tobias", "Linus"];
     const arr3 = ["Robin", "Morgan"];
@@ -80,9 +88,7 @@
     const myChildren2 = arr1.concat(arr2);
     //=============================
 
-    const myArr = [[1,2],[3,4],[5,6]];
-    const newArr = myArr.flat();
-    console.log(newArr);
+    
     //======================================
 
 
