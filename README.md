@@ -106,19 +106,17 @@
 
     **Example: 1** 
 
-        ```
             const points = [20, 12, 1, 5, 25, 10];
             points.sort(function(a, b){return a - b});
             points.sort(function(a, b){return b - a}); // descending
 
             Output: [1,5,10,12,20,25] 
 
-        ```
-        **Note:** now points[0] contains the lowest value and points[points.length-1] contains the highest value
+            **Note:** now points[0] contains the lowest value and 
+                    points[points.length-1] contains the highest value
 
     **Example: 2** Object Array
 
-        ```
             const birth = [
                 {name:"Ramesh", year:1992},
                 {name:"Suresh", year:2001},
@@ -134,7 +132,6 @@
                 { name: "Bhavesh", year: 2002 }
             ]
         
-        ```
 4. ### Concat Array
 
     ```
@@ -157,7 +154,6 @@
 
     **Example: 1**
 
-        ```
             var numbers = [5, 4, 12, 3, 16, 8, 11];
 
             var greaterThanCondition = numbers.filter(function(number) {
@@ -168,11 +164,9 @@
             console.log(sortedArray);
 
             Output: [8, 11, 12, 16]
-        ```
 
     **Example: 2**
 
-        ```
             1. Exp
 
                 const names = ["Ramesh", "Ram", "Raj", "Jayesh"];
@@ -189,10 +183,8 @@
 
                 Output: ["Ramesh", "Ram"]
 
-        ```
     **Example: 3**
 
-        ```
             let team = [
                 {
                     name: "Ramesh",
@@ -240,11 +232,9 @@
                     position: "backend engineer"
                 }]
 
-        ```
 
     **Example: 4**
 
-        ```
             var dataList = [
                 [
                     "Retail",
@@ -266,7 +256,6 @@
             console.log(filtArr);
             Output: [["Retail", "22,477", "24,549", "19,580", "15,358"]]
         
-        ```
     
     **Example: 5**
 
