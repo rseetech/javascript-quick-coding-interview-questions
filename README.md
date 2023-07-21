@@ -28,28 +28,35 @@
     
         > const names = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
     
-    1. #### The length property returns the length (size) of an array: 
+    1. #### The `length` property returns the length (size) of an array: 
+
         >   let size = names.length;
     
     2. #### The `push()` method adds a new element to an array (at the end):
+
         >   names.push("Bhavesh"); 
     
     2. #### The `pop()` method removes the last element from an array:
+
         >   names.pop();
 
-    3. #### The `shift()` method removes the first array element and `"shifts"` all other elements to a lower index.
+    3. #### The `shift()` method removes the first array element and `shifts` all other elements to a lower index.
+
         >   names.shift();
 
-    4. #### The `unshift()` method adds a new element to an array (at the beginning), and `"unshifts"` older elements:
+    4. #### The `unshift()` method adds a new element to an array (at the beginning), and `unshifts` older elements:
+
         >   names.unshift("Rakesh");
 
-    5. #### Array elements can be deleted using the JavaScript operator delete.
-    //Using delete leaves undefined holes in the array.
-    //Use `pop()` or `shift()` instead.
+    5. #### Array elements can be deleted using the JavaScript operator `delete`
+        **Note:** Using delete leaves undefined holes in the array.
+
+        Use `pop()` or `shift()` instead.
+
         >   delete names[0];
 
     6. #### The `splice()` method can be used to add new items to an array:
-        The first parameter (2) defines the position where new elements should be added (spliced in).
+        **Note:** The first parameter (2) defines the position where new elements should be added (spliced in).
 
         The second parameter (0) defines how many elements should be removed.
 
@@ -58,148 +65,207 @@
         >   names.splice(2, 0, "Rakesh", "Dinesh");
 
     7. #### The `slice()` method slices out a piece of an array into a new array.
-        The `slice()` method creates a new array.
+        **Note:** The `slice()` method creates a new array.
 
         The `slice()` method does not remove any elements from the source array.
             
         >   const citrus = names.slice(1);
 
     8. #### The `slice()` method can take two arguments like slice(1, 3).
+
         >   const citrus = names.slice(1, 3);
 
     9. #### The `sort()` method sorts an array alphabetically:
+
         >   names.sort();
 
     10. #### The `reverse()` method reverses the elements in an array.
+
         >   names.reverse();
 
-2. ### Consolidate array in single array
+2. ### Consolidate array into single array
+    **Example: 1**
+        ```
+            const myArr = [[1,2],[3,4],[5,6]];
+            const newArr = myArr.flat();
+            console.log(newArr);
+
+            **Output:** [1,2,3,4,5,6]
+        ```
+    **Example: 2**
+        ```
+            const multi_dimensional_array = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];
+
+            const single_array = multi_dimensional_array.flat();
+            console.log(single_array);
+
+            **Output:** ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+        ```
+3. ### Number array Sorting
+
+    **Example: 1** 
+        ```
+            const points = [20, 12, 1, 5, 25, 10];
+            points.sort(function(a, b){return a - b});
+            points.sort(function(a, b){return b - a}); // descending
+
+            **Output:** [1,5,10,12,20,25] 
+
+            **Note:** now points[0] contains the lowest value and points[points.length-1] contains the highest value
+        ```
+
+    **Example: 2** Object Array
+
+        ```
+            const birth = [
+                {name:"Ramesh", year:1992},
+                {name:"Suresh", year:2001},
+                {name:"Bhavesh", year:2002}
+            ];
+
+            birth.sort(function(a, b){return a.year - b.year});
+        
+        ```
+4. ### Concat Array
 
     ```
-        const myArr = [[1,2],[3,4],[5,6]];
-        const newArr = myArr.flat();
-        console.log(newArr);
+        const arr1 = ["Cecilie", "Lone"];
+        const arr2 = ["Emil", "Tobias", "Linus"];
+        const arr3 = ["Robin", "Morgan"];
+
+        const myChildren2 = arr1.concat(arr2);
+        const myChildren = arr1.concat(arr2, arr3); 
+
     ```
-    
-    const arr1 = ["Cecilie", "Lone"];
-    const arr2 = ["Emil", "Tobias", "Linus"];
-    const arr3 = ["Robin", "Morgan"];
-    const myChildren = arr1.concat(arr2, arr3);
-    const myChildren2 = arr1.concat(arr2);
-    //=============================
 
-    
-    //======================================
+5. ### Filter : Diffrent diffrent ways to use filter method in javascript
+
+    **Example: 1**
+
+        ```
+            var numbers = [5, 4, 12, 3, 16, 8, 11];
+
+            var greaterThanCondition = numbers.filter(function(number) {
+            return number > 5;
+            });
+
+            const sortedArray = greaterThanCondition.sort((a,b) => a-b);
+            console.log(sortedArray);
+        ```
+
+    **Example: 2**
+
+        ```
+            const ages = [32, 18, 25, 30, 28, 49, 40];
+
+            function checkAdult(age){
+                return age >= 30;
+            }
+            const result = ages.filter(checkAdult);
+
+            console.log(result.sort());
+
+        ```
+
+    **Example: 3**
+
+        ```
+            **1.**
+                let people = [
+                    {name: "suresh",age: 44},
+                    {name: "ramesh",age: 26},
+                    {name: "dinesh",age: 13},
+                    {name: "rakesh",age: 33}
+                ]
+
+                let toddlers = people.filter(person => person.age <= 3)
+
+                console.log(toddlers)
+
+            **2.**
+                let range = {
+                    lower: 13,
+                    upper: 16
+                }
+
+                let teenagers = people.filter(function(person) {
+                    return person.age >= this.lower && person.age <= this.upper;
+                }, range)
+
+                console.log(teenagers)
+
+            **3.**
+                var aquaticCreatures =  creatures.filter(function(creature) {
+                return creature.habitat == "Ocean";
+                });
+
+                console.log(aquaticCreatures);
+
+        ```
+
+    **Example: 1**
+
+        ```
+            let total = ["10%", "1000", "5%", "2000"];
+
+            let percentage = total.filter(function(item){
+                return typeof item == 'string' && item.includes('%');
+            });
+        
+            let absolute = total.filter(function(item){
+                return typeof item == 'number' || !isNaN(item);
+            });
+
+            console.log(percentage);
+            console.log(absolute);
+
+        ```
+
+    **Example: 1**
+
+        ```
+            let totals = ["10%", 1000, "5%", 2000];
+
+            **1.**
+
+                let percents = totals.filter(item => item.toString().includes('%'));
+                let numbers = totals.filter(item => !item.toString().includes('%'));
+
+                console.log(percents, numbers);
+
+            **2.**
+
+                var percentages = totalss.filter(e => isNaN(e));
+                var absolutes = totalss.filter(e => !isNaN(e));
+
+                console.log({percentage , absolute});
+
+        ```
+
+    **Example: 1**
+
+        ```
+            
+            
+
+        ```
+    **Example: 1**
+
+        ```
+
+        ```
+    **Example: 1**
+
+        ```
+
+        ```
+    **Example: 1**
+
+        ```
+
+        ```
 
 
-    //=========================================
-    const points = [40, 100, 1, 5, 25, 10];
-    points.sort(function(a, b){return a - b});
-    points.sort(function(a, b){return b - a}); // descending
-    // now points[0] contains the lowest value
-    // and points[points.length-1] contains the highest value
-
-    //=============================================
-    const cars = [
-    {type:"Volvo", year:2016},
-    {type:"Saab", year:2001},
-    {type:"BMW", year:2010}
-    ];
-
-    cars.sort(function(a, b){return a.year - b.year});
-    //=====================================================
-
-```
-    var creatures = [
-    {name: "Shark", habitat: "Ocean"},
-    {name: "Whale", habitat: "Ocean"},
-    {name: "Lion", habitat: "Savanna"},
-    {name: "Monkey", habitat: "Jungle"}
-    ];
-
-    var aquaticCreatures =  creatures.filter(function(creature) {
-    return creature.habitat == "Ocean";
-    });
-
-    console.log(aquaticCreatures);
-    ```
-    //========================
-    ```
-    let total = ["10%", "1000", "5%", "2000"];
-    let percentage = total.filter(function(item){
-    return typeof item == 'string' && item.includes('%');
-    });
-    console.log(percentage);
-    let absolute = total.filter(function(item){
-    return typeof item == 'number' || !isNaN(item);
-    });
-    console.log(absolute);
-    ```
-    //===================================
-    ```
-    let totals = ["10%", 1000, "5%", 2000];
-
-    let percents = totals.filter(item => item.toString().includes('%'));
-    let numbers = totals.filter(item => !item.toString().includes('%'));
-    console.log(percents, numbers);
-    ```
-    //===================================
-    ```
-    let totalss = ["10%", 1000, "5%", 2000];
-    var percentages = totalss.filter(e => isNaN(e));
-    var absolutes = totalss.filter(e => !isNaN(e));
-    console.log({percentage , absolute});
-    ```
-    //=========================================================
-    ```
-    const ages = [32, 18, 25, 30, 28, 49, 40];
-
-    function checkAdult(age){
-        return age >= 30;
-    }
-    const result = ages.filter(checkAdult);
-
-    console.log(result.sort());
-    ```
-    //==================================
-    ```
-    var numbers = [5, 4, 12, 3, 16, 8, 11];
-
-    var greaterThanCondition = numbers.filter(function(number) {
-    return number > 5;
-    });
-
-    const sortedArray = greaterThanCondition.sort((a,b) => a-b);
-    console.log(sortedArray);
-    ```
-    //==============================================
-    ```
-    let people = [
-        {name: "aaron",age: 65},
-        {name: "beth",age: 2},
-        {name: "cara",age: 13},
-        {name: "daniel",age: 3},
-        {name: "ella",age: 25},
-        {name: "fin",age: 1},
-        {name: "george",age: 43},
-    ]
-
-    let toddlers = people.filter(person => person.age <= 3)
-
-    console.log(toddlers)
-
-    let range = {
-    lower: 13,
-    upper: 16
-    }
-
-    let teenagers = people.filter(function(person) {
-        return person.age >= this.lower && person.age <= this.upper;
-    }, range)
-
-    console.log(teenagers)
-    ```
-    //================================
     ```
     let team = [
         {
