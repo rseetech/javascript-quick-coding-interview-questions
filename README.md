@@ -1,1 +1,1 @@
-# javascript-quick-interview-coding-questions
+# Javascript Quick Coding Interview Questions
