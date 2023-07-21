@@ -26,34 +26,34 @@
 
 1. ### Array method more using. Below Array can be used in all method 
     
-        > const names = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
+        > const name = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
     
     1. #### The `length` property returns the length (size) of an array: 
 
-        >   let size = names.length;
+        >   let size = name.length;
     
     2. #### The `push()` method adds a new element to an array (at the end):
 
-        >   names.push("Bhavesh"); 
+        >   name.push("Bhavesh"); 
     
     2. #### The `pop()` method removes the last element from an array:
 
-        >   names.pop();
+        >   name.pop();
 
     3. #### The `shift()` method removes the first array element and `shifts` all other elements to a lower index.
 
-        >   names.shift();
+        >   name.shift();
 
     4. #### The `unshift()` method adds a new element to an array (at the beginning), and `unshifts` older elements:
 
-        >   names.unshift("Rakesh");
+        >   name.unshift("Rakesh");
 
-    5. #### Array elements can be deleted using the JavaScript operator `delete`
+    5. #### `delete` Array elements can be deleted using the JavaScript operator `delete`
         **Note:** Using delete leaves undefined holes in the array.
 
         Use `pop()` or `shift()` instead.
 
-        >   delete names[0];
+        >   delete name[0];
 
     6. #### The `splice()` method can be used to add new items to an array:
         **Note:** The first parameter (2) defines the position where new elements should be added (spliced in).
@@ -62,57 +62,62 @@
 
         The rest of the parameters `("Rakesh" , "Dinesh")` define the new elements to be added.
 
-        >   names.splice(2, 0, "Rakesh", "Dinesh");
+        >   name.splice(2, 0, "Rakesh", "Dinesh");
 
     7. #### The `slice()` method slices out a piece of an array into a new array.
         **Note:** The `slice()` method creates a new array.
 
         The `slice()` method does not remove any elements from the source array.
             
-        >   const citrus = names.slice(1);
+        >   const citrus = name.slice(1);
 
     8. #### The `slice()` method can take two arguments like slice(1, 3).
 
-        >   const citrus = names.slice(1, 3);
+        >   const citrus = name.slice(1, 3);
 
     9. #### The `sort()` method sorts an array alphabetically:
 
-        >   names.sort();
+        >   name.sort();
 
     10. #### The `reverse()` method reverses the elements in an array.
 
-        >   names.reverse();
+        >   name.reverse();
 
 2. ### Consolidate array into single array
+
     **Example: 1**
+
         ```
             const myArr = [[1,2],[3,4],[5,6]];
             const newArr = myArr.flat();
             console.log(newArr);
 
-            **Output:** [1,2,3,4,5,6]
+            Output: [1,2,3,4,5,6]
         ```
     **Example: 2**
+
         ```
             const multi_dimensional_array = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];
 
             const single_array = multi_dimensional_array.flat();
             console.log(single_array);
 
-            **Output:** ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+            Output: ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
         ```
+
 3. ### Number array Sorting
 
     **Example: 1** 
+
         ```
             const points = [20, 12, 1, 5, 25, 10];
             points.sort(function(a, b){return a - b});
             points.sort(function(a, b){return b - a}); // descending
 
-            **Output:** [1,5,10,12,20,25] 
+            Output: [1,5,10,12,20,25] 
 
-            **Note:** now points[0] contains the lowest value and points[points.length-1] contains the highest value
         ```
+        **Note:** now points[0] contains the lowest value and points[points.length-1] contains the highest value
 
     **Example: 2** Object Array
 
@@ -122,19 +127,32 @@
                 {name:"Suresh", year:2001},
                 {name:"Bhavesh", year:2002}
             ];
+            const sortedlist = birth.sort(function(a, b){return a.year - b.year});
 
-            birth.sort(function(a, b){return a.year - b.year});
+            console.log(sortedlist);
+
+            Output: [
+                { name: "Ramesh", year: 1992 }, 
+                { name: "Suresh", year: 2001 },
+                { name: "Bhavesh", year: 2002 }
+            ]
         
         ```
 4. ### Concat Array
 
     ```
-        const arr1 = ["Cecilie", "Lone"];
-        const arr2 = ["Emil", "Tobias", "Linus"];
-        const arr3 = ["Robin", "Morgan"];
+        const arr1 = ["Ramesh", "Suresh"];
+        const arr2 = ["Bhavesh", "Vinod"];
+        const arr3 = ["Rakesh", "Raj"];
 
-        const myChildren2 = arr1.concat(arr2);
-        const myChildren = arr1.concat(arr2, arr3); 
+        const res1 = arr1.concat(arr2);
+        const res2 = arr1.concat(arr2, arr3);
+        
+        console.log(res1)
+        Output: ["Ramesh", "Suresh", "Bhavesh", "Vinod"]
+
+        console.log(res2)
+        Output: ["Ramesh", "Suresh", "Bhavesh", "Vinod", "Rakesh", "Raj"]
 
     ```
 
@@ -146,14 +164,114 @@
             var numbers = [5, 4, 12, 3, 16, 8, 11];
 
             var greaterThanCondition = numbers.filter(function(number) {
-            return number > 5;
+                return number > 5;
             });
-
             const sortedArray = greaterThanCondition.sort((a,b) => a-b);
+
             console.log(sortedArray);
+
+            Output: [8, 11, 12, 16]
         ```
 
     **Example: 2**
+
+        ```
+            1. Exp
+
+                const names = ["Ramesh", "Ram", "Raj", "Jayesh"];
+                const results = names.filter(name => name.length > 4);
+
+                console.log(results);
+
+                Output: ["Ramesh", "Jayesh"]
+
+            2. Exp
+
+                var res = names.filter(name => name.includes('Ram'))
+                console.log(res);
+
+                Output: ["Ramesh", "Ram"]
+
+        ```
+    **Example: 3**
+
+        ```
+            let team = [
+                {
+                    name: "Ramesh",
+                    position: "developer"
+                },
+                {
+                    name: "Rakesh",
+                    position: "ui designer"
+                },
+                {
+                    name: "Suresh",
+                    position: "content manager"
+                },
+                {
+                    name: "Bhavesh",
+                    position: "backend engineer"
+                },
+                {
+                    name: "george",
+                    position: "developer"
+                },
+            ];
+
+            let developers = team.filter(member => member.position == "developer")
+
+            console.log(developers)
+            Output: [{
+                        name: "Ramesh",
+                        position: "developer"
+                        }, {
+                        name: "george",
+                        position: "developer"
+                    }]
+            let nondevelopers = team.filter(member => member.position !== "developer")
+
+            console.log(nondevelopers)
+            Output: [{
+                    name: "Rakesh",
+                    position: "ui designer"
+                    }, {
+                    name: "Suresh",
+                    position: "content manager"
+                    }, {
+                    name: "Bhavesh",
+                    position: "backend engineer"
+                }]
+
+        ```
+
+    **Example: 4**
+
+        ```
+            var dataList = [
+                [
+                    "Retail",
+                    "22,477",
+                    "24,549",
+                    "19,580",
+                    "15,358",
+                ],
+                [
+                    "Online",
+                    "8,653",
+                    "7,586",
+                    "2,432",
+                    "4,321"
+                ],
+            ];
+            filtArr = dataList.filter(arr => arr[0].trim() == 'Retail');
+            
+            console.log(filtArr);
+            Output: [["Retail", "22,477", "24,549", "19,580", "15,358"]]
+        
+        ```
+    
+    **Example: 5**
 
         ```
             const ages = [32, 18, 25, 30, 28, 49, 40];
@@ -164,10 +282,11 @@
             const result = ages.filter(checkAdult);
 
             console.log(result.sort());
+            Output: [30, 32, 40, 49]
 
         ```
 
-    **Example: 3**
+    **Example: 6**
 
         ```
             **1.**
@@ -181,18 +300,21 @@
                 let toddlers = people.filter(person => person.age <= 3)
 
                 console.log(toddlers)
+                Output: [{ age: 14, name: "suresh"}, 
+                         { age: 13, name: "dinesh"}]
 
             **2.**
                 let range = {
-                    lower: 13,
-                    upper: 16
+                    min: 13,
+                    max: 16
                 }
 
                 let teenagers = people.filter(function(person) {
-                    return person.age >= this.lower && person.age <= this.upper;
+                    return person.age >= this.min && person.age <= this.max;
                 }, range)
 
                 console.log(teenagers)
+                Output: [{ age: 26, name: "ramesh" }]
 
             **3.**
                 var aquaticCreatures =  creatures.filter(function(creature) {
@@ -203,7 +325,7 @@
 
         ```
 
-    **Example: 1**
+    **Example: 7**
 
         ```
             let total = ["10%", "1000", "5%", "2000"];
@@ -221,7 +343,7 @@
 
         ```
 
-    **Example: 1**
+    **Example: 8**
 
         ```
             let totals = ["10%", 1000, "5%", 2000];
@@ -242,151 +364,54 @@
 
         ```
 
-    **Example: 1**
+    **Example: 9**
 
         ```
-            
-            
+            1. Exp : JavaScript to illustrate findIndex() method
+
+                function canVote(age) {
+                    return age >= 18;
+                }
+                
+                function func() {
+                    let filtered = [24, 33, 16, 40].filter(canVote);
+                    console.log(filtered);
+                }
+                func();
+
+            2. Exp
+
+                function isPositive(value) {
+                    return value > 0;
+                }
+                
+                let filtered = [112, 52, 0, -1, 944].filter(isPositive);
+                console.log(filtered);
+
+            3. Exp
+                function isEven(value) {
+                    return value % 2 == 0;
+                }
+                
+                let filtereds = [11, 98, 31, 23, 944].filter(isEven);
+                console.log(filtereds);
 
         ```
-    **Example: 1**
-
-        ```
-
-        ```
-    **Example: 1**
-
-        ```
-
-        ```
-    **Example: 1**
-
-        ```
-
-        ```
 
 
-    ```
-    let team = [
-        {
-            name: "aaron",
-            position: "developer"
-        },
-        {
-            name: "beth",
-            position: "ui designer"
-        },
-        {
-            name: "daniel",
-            position: "content manager"
-        },
-        {
-            name: "ella",
-            position: "cto"
-        },
-        {
-            name: "fin",
-            position: "backend engineer"
-        },
-        {
-            name: "george",
-            position: "developer"
-    },
-
-    ]
-
-    let developers = team.filter(member => member.position == "developer")
-
-    console.log(developers)
-    let nondevelopers = team.filter(member => member.position !== "developer")
-
-    console.log(nondevelopers)
-    ```
-    //=============================================
-    ```
-    // JavaScript to illustrate findIndex() method
-    function canVote(age) {
-        return age >= 18;
-    }
     
-    function func() {
-        let filtered = [24, 33, 16, 40].filter(canVote);
-        console.log(filtered);
-    }
-    func();
-    ```
-    //================================
-    ```
-    function isPositive(value) {
-        return value > 0;
-    }
-    
-    let filtered = [112, 52, 0, -1, 944].filter(isPositive);
-    console.log(filtered);
-    ```
-    //===============================
-    ```
-    function isEven(value) {
-        return value % 2 == 0;
-    }
-    
-    let filtereds = [11, 98, 31, 23, 944].filter(isEven);
-    console.log(filtereds);
-    ```
-    //===============================
-    ```
-    var myArray = ["bedroomone", "bedroomonetwo", "bathroom"];
 
-    var bedrooms = myArray.filter(name => name.includes('bedroom'))
-    console.log(bedrooms);
-    ```
-    //===================================
-    ```
-    var dataList = [
-    [
-        "Retail",
-        "22,477",
-        "24,549",
-        "19,580",
-        "15,358",
-    ],
-    [
-        "Online",
-        "8,653",
-        "7,586",
-        "2,432",
-        "4,321"
-    ],
-    [
-        "In Store",
-        "2,532",
-        "2,836",
-        "5,632",
-        "7,325"
-    ]
-    ];
-    filtArr = dataList.filter(arr => arr[0].trim() == 'Retail');
-    console.log(filtArr);
-    ```
-    //===============================
-    ```
-    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-    const results = words.filter(word => word.length > 6);
-
-    console.log(results);
-    // expected output: Array ["exuberant", "destruction", "present"]
 
     // search using keyword from array
 
     var keywordToSearch = 'Arslan'; // word to search
     var keyword =   keywordToSearch.toLowerCase();
-    var names = [{id: 1, name: 'Aqib'}, {id: 2, name: 'Arslan'}];
+    var name = [{id: 1, name: 'Aqib'}, {id: 2, name: 'Arslan'}];
 
-    //search keyword from names array by name
-    var searchResult = names.filter(word => word.name.toLowerCase().indexOf(keyword) > -1);
+    //search keyword from name array by name
+    var searchResult = name.filter(word => word.name.toLowerCase().indexOf(keyword) > -1);
     console.log(searchResult);
-    // expected output: > Array [Object { id: 2, name: "Arslan" }]
+     output: > Array [Object { id: 2, name: "Arslan" }]
     ```
     //===================================
     ```
