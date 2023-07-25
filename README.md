@@ -22,7 +22,18 @@
    >
    >4. Click here for [React Create Tic Tac Toe Game](https://github.com/rseetech/react-create-tic-tac-toe-game) more information.
 
+### Table of Contents
 
+| No. | Questions                                                                              |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | [Multiplie values](#multiplie-values)           |
+| 2   | [Remove Dublicate from array](#remove-dublicate-from-array)                        |
+| 3   | [Print all duplicate elements of an array](#print-all-duplicate-elements-of-an-array)                   |
+| 4   | [Find the nth largest element in a sorted array](#find-the-nth-largest-element-in-a-sorted-array)                   |
+| 5   | [Find the frequency of elements in array](#find-the-frequency-of-elements-in-array)                   |
+| 6   | [Group items on the basis of age of given array of object](#group-items-on-the-basis-of-age-of-given-array-of-object)                   |
+| 7   | [Collect books from array of objects and return collection of books as an array](#collect-books-from-array-of-objects-and-return-collection-of-books-as-an-array)                   |
+| 7   | [Anagram Javascript Program To Check Whether Two Strings Are Anagram Of Each Other ](#javascript-program-to-check-whether-two-strings-are-anagram-of-each-other)                   |
 
 1. ### Array method more using. Below Array can be used in all method 
     
@@ -83,6 +94,8 @@
 
         >   name.reverse();
 
+   **[⬆ Back to Top](#table-of-contents)**
+
 2. ### Consolidate array into single array
 
     **Example: 1**
@@ -101,6 +114,8 @@
             console.log(single_array);
 
             Output: ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 3. ### Number array Sorting
 
@@ -132,6 +147,8 @@
                 { name: "Bhavesh", year: 2002 }
             ]
         
+   **[⬆ Back to Top](#table-of-contents)**
+
 4. ### Concat Array
 
     ```
@@ -149,6 +166,8 @@
         Output: ["Ramesh", "Suresh", "Bhavesh", "Vinod", "Rakesh", "Raj"]
 
     ```
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 5. ### Filter : Diffrent diffrent ways to use filter method in javascript
 
@@ -383,21 +402,21 @@
                 console.log(filtereds);
 
         ```
+   **[⬆ Back to Top](#table-of-contents)**
 
 
-    
+1. ### search using keyword from array
 
+    ```
+        var keywordToSearch = 'Arslan'; // word to search
+        var keyword =   keywordToSearch.toLowerCase();
+        var name = [{id: 1, name: 'Aqib'}, {id: 2, name: 'Arslan'}];
 
-    // search using keyword from array
-
-    var keywordToSearch = 'Arslan'; // word to search
-    var keyword =   keywordToSearch.toLowerCase();
-    var name = [{id: 1, name: 'Aqib'}, {id: 2, name: 'Arslan'}];
-
-    //search keyword from name array by name
-    var searchResult = name.filter(word => word.name.toLowerCase().indexOf(keyword) > -1);
-    console.log(searchResult);
-     output: > Array [Object { id: 2, name: "Arslan" }]
+        //search keyword from name array by name
+        var searchResult = name.filter(word => word.name.toLowerCase().indexOf(keyword) > -1);
+        console.log(searchResult);
+        output: > Array [Object { id: 2, name: "Arslan" }]
+        
     ```
     //===================================
     ```
@@ -412,18 +431,22 @@
         return result
         }
     }
+
     ```
     //=================================
+
     ```
     var newItem = "Ramesh";
     var array = ["Ramesh", "Jayesh"];
     array.indexOf(newItem) === -1 ? array.push(newItem) : array.splice(array.indexOf(newItem), 1);
     
     console.log(array)
+
     ```
     //========================================
     
     ```
+
     const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
     
     console.log(beasts.indexOf('bison'));
@@ -435,40 +458,49 @@
     
     console.log(beasts.indexOf('giraffe'));
     // Expected output: -1
+    
     ```
-    //================================
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+2. ### Finding if an element exists in the array or not and updating the array
+
     ```
-    //Finding if an element exists in the array or not and updating the array
-    function updateVegetablesCollection(veggies, veggie) {
-        if (veggies.indexOf(veggie) === -1) {
-        veggies.push(veggie);
-        console.log(`New veggies collection is: ${veggies}`);
-        } else {
-        console.log(`${veggie} already exists in the veggies collection.`);
+        function updateVegetablesCollection(veggies, veggie) {
+            if (veggies.indexOf(veggie) === -1) {
+            veggies.push(veggie);
+            console.log(`New veggies collection is: ${veggies}`);
+            } else {
+            console.log(`${veggie} already exists in the veggies collection.`);
+            }
         }
-    }
-  
-    const veggies = ["potato", "tomato", "chillies", "green-pepper"];
     
-    updateVegetablesCollection(veggies, "spinach");
-    // New veggies collection is: potato,tomato,chillies,green-pepper,spinach
-    updateVegetablesCollection(veggies, "spinach");
-    // spinach already exists in the veggies collection.
+        const veggies = ["potato", "tomato", "chillies", "green-pepper"];
+        
+        updateVegetablesCollection(veggies, "spinach");
+        // New veggies collection is: potato,tomato,chillies,green-pepper,spinach
+        updateVegetablesCollection(veggies, "spinach");
+        // spinach already exists in the veggies collection.
+        
     ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+3. ### Finding all the occurrences of an elements
     
     ```
-    //Finding all the occurrences of an elements
-    
-    const indices = [];
-    const arrays = ["a", "b", "a", "c", "a", "d", "a", "a"];
-    const element = "a";
-    let idx = arrays.indexOf(element);
-    while (idx !== -1) {
-        indices.push(idx);
-        idx = arrays.indexOf(element, idx + 1);
-    }
-    console.log(indices);
-    // [0, 2, 4]
+        const indices = [];
+        const arrays = ["a", "b", "a", "c", "a", "d", "a", "a"];
+        const element = "a";
+        let idx = arrays.indexOf(element);
+        while (idx !== -1) {
+            indices.push(idx);
+            idx = arrays.indexOf(element, idx + 1);
+        }
+        console.log(indices);
+        
+        Output: [0, 2, 4]
+
     ```
 
 
