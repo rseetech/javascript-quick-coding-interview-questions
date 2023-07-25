@@ -26,16 +26,16 @@
 
 | No. | Questions                                                                              |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | [Multiplie values](#multiplie-values)           |
-| 2   | [Remove Dublicate from array](#remove-dublicate-from-array)                        |
-| 3   | [Print all duplicate elements of an array](#print-all-duplicate-elements-of-an-array)                   |
-| 4   | [Find the nth largest element in a sorted array](#find-the-nth-largest-element-in-a-sorted-array)                   |
-| 5   | [Find the frequency of elements in array](#find-the-frequency-of-elements-in-array)                   |
-| 6   | [Group items on the basis of age of given array of object](#group-items-on-the-basis-of-age-of-given-array-of-object)                   |
-| 7   | [Collect books from array of objects and return collection of books as an array](#collect-books-from-array-of-objects-and-return-collection-of-books-as-an-array)                   |
-| 7   | [Anagram Javascript Program To Check Whether Two Strings Are Anagram Of Each Other ](#javascript-program-to-check-whether-two-strings-are-anagram-of-each-other)                   |
+| 1   | [Array method more using Below Array can be used in all method](#array-method-more-using.-below-array-can-be-used-in-all-method)   |
+| 2   | [Consolidate array into single array](#consolidate-array-into-single-array)                   |
+| 3   | [Number array Sorting](#number-array-sorting)                   |
+| 4   | [Concat Array](#concat-array)                   |
+| 5   | [Filter : Diffrent diffrent ways to use filter method in javascript](#filter-:-diffrent-diffrent-ways-to-use-filter-method-in-javascript) |
+| 6   | [search using keyword from array](#search-using-keyword-from-array) |
+| 7   | [Finding if an element exists in the array or not and updating the array](#finding-if-an-element-exists-in-the-array-or-not-and-updating-the-array)                   |
+| 8   | [Finding all the occurrences of an elements](#finding-all-the-occurrences-of-an-elements) |
 
-1. ### Array method more using. Below Array can be used in all method 
+1. ### Array method more using Below Array can be used in all method 
     
         > const name = ["Ramesh", "Suresh", "Rajesh", "Jayesh"];
     
@@ -101,12 +101,19 @@
     **Example: 1**
 
             const myArr = [[1,2],[3,4],[5,6]];
+            const myArr = [[[1,2][,[[[3,4]]],[5,6]];
             const newArr = myArr.flat();
             console.log(newArr);
 
             Output: [1,2,3,4,5,6]
         
     **Example: 2**
+    
+            const myArr2 = [[1,2],[[[[3,4]]]],[5,6]];
+            const newArr2 = myArr2.flat(4);
+            console.log(newArr2);
+
+    **Example: 3**
 
             const multi_dimensional_array = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];
 
