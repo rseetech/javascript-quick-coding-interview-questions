@@ -29,6 +29,7 @@
 | 1   | [Array method more using Below Array can be used in all method](#array-method-more-using.-below-array-can-be-used-in-all-method)   |
 | 2   | [Consolidate array into single array](#consolidate-array-into-single-array)                   |
 | 3   | [Number array Sorting](#number-array-sorting)                   |
+| 4   | [Number array sort without sort method](#number-array-sort-without-sort-method)                   |
 | 4   | [Concat Array](#concat-array)                   |
 | 5   | [Filter : Diffrent diffrent ways to use filter method in javascript](#filter-:-diffrent-diffrent-ways-to-use-filter-method-in-javascript) |
 | 6   | [search using keyword from array](#search-using-keyword-from-array) |
@@ -154,6 +155,82 @@
                 { name: "Bhavesh", year: 2002 }
             ]
         
+   **[⬆ Back to Top](#table-of-contents)**
+
+4. ### Number array sort without sort method
+
+    ** Example: 1 **
+
+    ```
+        function Numeric_sort(ar) {
+            let i = 0, j;
+            while (i < ar.length) {
+                j = i + 1;
+                while (j < ar.length) {
+                    if (ar[j] < ar[i]) {
+                        let temp = ar[i];
+                        ar[i] = ar[j];
+                        ar[j] = temp;
+                    }
+                    j++;
+                }
+                i++;
+            }
+        }
+        let arr = [1, 15, 10, 45, 27, 100];
+        Numeric_sort(arr);
+        console.log(arr);
+
+    ```
+
+    ** Example: 2 **
+
+        ```
+            function bubbleSort(arr) {
+                const len = arr.length;
+
+                for (let i = 0; i < len - 1; i++) {
+                    for (let j = 0; j < len - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        // Swap elements if they are in the wrong order
+                        const temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                    }
+                }
+            return arr;
+            }
+            const arrayToSort = [12, 34, 21, 14, 67, 35, 64, 25];
+            const sortedArray = bubbleSort(arrayToSort);
+            console.log(sortedArray); // Output: [12, 14, 21, 25, 34, 35, 64, 67]
+
+        ```
+
+    ** Example: 3 **
+    
+    ```
+        function bubbleSort(array) {
+            var done = false;
+            while (!done) {
+                done = true;
+                for (var i = 1; i < array.length; i += 1) {
+                    if (array[i - 1] > array[i]) {
+                    done = false;
+                    var tmp = array[i - 1];
+                    array[i - 1] = array[i];
+                    array[i] = tmp;
+                    }
+                }
+            }
+            return array;
+        }
+        var numbers = [12, 10, 15, 11, 14, 13, 16];
+        bubbleSort(numbers);
+        console.log(numbers);
+        
+    ```
+
    **[⬆ Back to Top](#table-of-contents)**
 
 4. ### Concat Array
