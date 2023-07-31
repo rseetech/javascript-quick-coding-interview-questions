@@ -107,7 +107,24 @@
             console.log(newArr);
 
             Output: [1,2,3,4,5,6]
-        
+
+    **Without flat() method**
+
+            function flattenArray(arr) {
+                let result = [];
+                arr.forEach((item) => {
+                    if (Array.isArray(item)) {
+                    result = result.concat(flattenArray(item));
+                    } else {
+                    result.push(item);
+                    }
+                });
+                return result;
+            }
+            const nestedArray = [6, 7, [8], [[9]], [[10, 11]]];
+            const flattenedArray = flattenArray(nestedArray);
+            console.log(flattenedArray); // Output: [6, 7, 8, 9, 10, 11]
+                        
     **Example: 2**
     
             const myArr2 = [[1,2],[[[[3,4]]]],[5,6]];
