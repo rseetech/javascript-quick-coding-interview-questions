@@ -97,6 +97,12 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
+2. ### Use arr.reduce to print sum
+
+    const arr = [1,2,3,4,5] // use arr.reduce to print sum
+    const sum = arr.reduce((a, val) => a + val);
+    console.log(sum);
+
 2. ### Consolidate array into single array
 
     **Example: 1**
