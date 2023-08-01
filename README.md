@@ -600,7 +600,7 @@
         }
         console.log(indices);
         
-        Output: [0, 2, 4]
+        Output: [0, 2, 4, 6, 7]
 
     ```
 
