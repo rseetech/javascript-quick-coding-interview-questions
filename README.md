@@ -358,6 +358,31 @@
                     position: "backend engineer"
                 }]
 
+    **Example: 3**
+    
+        function removeDuplicate(arr, p) {
+            const unq = {};
+            return arr.filter((obj) => {
+                const value = obj[p];
+                
+                if(!unq[value]){
+                    unq[value] = true;
+                return true;
+                }
+                return false;
+            })
+        }
+
+        const person = [
+        { id: 1, name: "ramesh" },
+        { id: 2, name: "suresh" },
+        { id: 2, name: "rakesh" },
+        { id: 1, name: "ramesh" },
+        ];
+
+        const unqperson = removeDuplicate(person, 'id');
+        console.log(unqperson);
+
 
     **Example: 4**
 
@@ -609,5 +634,17 @@
         Output: [0, 2, 4, 6, 7]
 
     ```
+3. ### Find the nth Fibonacci number in javascript.
+    
+    ```
+        function fibonac(n){
+            if(n <=1){
+                return n;
+            }
+            return fibonac(n-1)+ fibonac(n-2);
+        }
 
+        const res = fibonac(4);
+        console.log(res);
+    ```
 
