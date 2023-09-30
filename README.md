@@ -383,6 +383,28 @@
         const unqperson = removeDuplicate(person, 'id');
         console.log(unqperson);
 
+    **Example: 4**
+
+        var input = [
+            { brand: "apple", model: "iphone12", price: 70000 },
+            { brand: "apple", model: "iphone11", price: 50000 },
+            { brand: "motorola", model: "g4", price: 15000 },
+            { brand: "samsung", model: "gx", price: 18000 },
+            { brand: "samsung", model: "gx2", price: 25000 }
+        ];
+
+        var output = {};
+
+        input.forEach(function (item) {
+            var brand = item.brand;
+            var price = item.price;
+
+            if (!output[brand] || price < output[brand]) {
+                output[brand] = price;
+            }
+        });
+        console.log(output); 
+        Output:- { apple: 50000, motorola: 15000, samsung: 18000 }
 
     **Example: 4**
 
